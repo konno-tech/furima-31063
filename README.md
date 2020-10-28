@@ -24,16 +24,16 @@ Things you may want to cover:
 * テーブル設計
 ## usersテーブル
 
-| Column          | Type    | Options     |
-| --------------- | ------- | ----------- |
-| nickname        | string  | null: false |
-| email           | string  | null: false |
-| password        | string  | null: false |
-| last_name_full  | string  | null: false |
-| first_name_full | string  | null: false |
-| last_name_half  | string  | null: false |
-| first_name_half | string  | null: false |
-| birthday        | date    | null: false |
+| Column             | Type    | Options     |
+| ------------------ | ------- | ----------- |
+| nickname           | string  | null: false |
+| email              | string  | null: false |
+| encrypted_password | string  | null: false |
+| last_name_full     | string  | null: false |
+| first_name_full    | string  | null: false |
+| last_name_half     | string  | null: false |
+| first_name_half    | string  | null: false |
+| birthday           | date    | null: false |
 
 ### Association
 
@@ -53,7 +53,6 @@ Things you may want to cover:
 | forwarding_origin_id           | integer    | null: false       |
 | before_forward_date_id         | integer    | null: false       |
 | price                          | integer    | null: false       |
-| favorite_count                 | integer    | null: false       |
 | user                           | references | foreign_key: true |
 - imageはActiveStorageで実装
 
