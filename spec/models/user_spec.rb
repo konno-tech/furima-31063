@@ -26,7 +26,7 @@ RSpec.describe User, type: :model do
       @user.save
       another_user = FactoryBot.build(:user, email: @user.email)
       another_user.valid?
-      expect(@user.errors.full_messages).to include("Email has already been taken")
+      expect(another_user.errors.full_messages).to include("Email has already been taken")
     end
 
     it "emailに「@」が含まれていない場合は登録されないこと" do
