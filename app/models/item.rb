@@ -6,7 +6,7 @@ class Item < ApplicationRecord
 
   #空の投稿を保存できないようにする
   validates :name, :description, :category_id, :condition_id, :charge_of_distribution_cost_id, 
-            :forwarding_origin_id, presence: true
+            :forwarding_origin_id, :before_forward_date_id, presence: true
 
   #ジャンルの選択が「--」の時は保存できないようにする
   validates :category_id, numericality: { other_than: 1 }
