@@ -5,7 +5,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :category
 
   #空の投稿を保存できないようにする
-  validates :name, :description, :category_id, :condition_id, presence: true
+  validates :name, :description, :category_id, :condition_id, :charge_of_distribution_cost_id, presence: true
 
   #ジャンルの選択が「--」の時は保存できないようにする
   validates :category_id, numericality: { other_than: 1 }
