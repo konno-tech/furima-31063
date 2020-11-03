@@ -24,4 +24,5 @@ window.addEventListener('load', function(){
       }
 
     });
+    setInterval(check, 1000);
 })
