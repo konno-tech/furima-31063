@@ -31,6 +31,8 @@ class ItemsController < ApplicationController
     @item.update(item_params)
     if @item.update(item_params)
       redirect_to item_path(params[:id])
+    else
+      render :edit
     end
   end
 
