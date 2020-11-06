@@ -74,7 +74,6 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :item
 - has_one    :delivery_information
-- has_one    :sales_record
 
 
 ## delivery_information テーブル
@@ -87,18 +86,6 @@ Things you may want to cover:
 | address              | string     | null: false       |
 | building_name        | string     | --                |
 | phone_number         | string     | null: false       |
-| order                | references | foreign_key: true |
-
-### Association
-
-- belongs_to :order
-
-
-## sales_record テーブル
-
-| Column               | Type       | Options           |
-| -------------------- | ---------- | ----------------- |
-| price                | integer    | null: false       |
 | order                | references | foreign_key: true |
 
 ### Association
