@@ -34,12 +34,12 @@ ActiveRecord::Schema.define(version: 2020_11_06_061101) do
   end
 
   create_table "delivery_informations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
-    t.string "zip_code"
-    t.integer "prefecture_id"
-    t.string "municipality"
-    t.string "address"
+    t.string "zip_code", null: false
+    t.integer "forwarding_origin_id", null: false
+    t.string "municipality", null: false
+    t.string "address", null: false
     t.string "building_name"
-    t.string "phone_number"
+    t.string "phone_number", null: false
     t.bigint "order_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
