@@ -78,15 +78,15 @@ Things you may want to cover:
 
 ## delivery_information テーブル
 
-| Column        | Type       | Options           |
-| ------------- | ---------- | ----------------- |
-| zip_code      | string     | null: false       |
-| prefecture_id | integer    | null: false       |
-| municipality  | string     | null: false       |
-| address       | string     | null: false       |
-| building_name | string     | --                |
-| phone_number  | string     | null: false       |
-| order         | references | foreign_key: true |
+| Column               | Type       | Options           |
+| -------------------- | ---------- | ----------------- |
+| zip_code             | string     | null: false       |
+| forwarding_origin_id | integer    | null: false       |
+| municipality         | string     | null: false       |
+| address              | string     | null: false       |
+| building_name        | string     | --                |
+| phone_number         | string     | null: false       |
+| order                | references | foreign_key: true |
 
 ### Association
 
