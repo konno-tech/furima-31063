@@ -11,7 +11,8 @@ class OrdersController < ApplicationController
 
   def create
     @form_order = FormOrder.new(form_order_params)
-    if @form_order.save
+    if @form_order.valid?
+      @form_order.save
       redirect_to root_path
     else
       @item = Item.find(params[:item_id])
