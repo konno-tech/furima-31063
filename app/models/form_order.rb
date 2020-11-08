@@ -7,7 +7,7 @@ class FormOrder
   with_options presence: true do
     # validates :price
     validates :zip_code,             format:       { with: /\A\d{3}[-]\d{4}\z/, message: 'は「-(ﾊｲﾌﾝ)」ありで入力してください' }
-    validates :forwarding_origin_id, numericality: { other_than: 1, message: 'Select' }
+    validates :forwarding_origin_id, numericality: { other_than: 1, message: 'は「---」以外を選択してください' }
     validates :municipality
     validates :address
     validates :phone_number,         format:       { with: /\A\d{11}\z/, message: 'は「-(ﾊｲﾌﾝ)」なしで入力してください' }
