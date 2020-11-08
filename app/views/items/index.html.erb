@@ -134,9 +134,11 @@
 
           <%# 商品が売れていればsold outを表示する。 %>
           <%# この機能は商品購入機能の作成後に実装する。%>
+          <% if Order.exists?(item_id: item.id) %>
           <div class='sold-out'>
             <span>Sold Out!!</span>
           </div>
+          <% end %>
           <%# //商品が売れていればsold outを表示しましょう %>
 
         </div>

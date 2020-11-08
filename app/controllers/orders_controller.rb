@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
     @item = Item.find(params[:item_id])
     if current_user.id == @item.user.id
       redirect_to root_path
-    elsif Order.find(params[:item_id])
+    elsif @item.order
       redirect_to root_path
     end
     @form_order = FormOrder.new
@@ -19,7 +19,13 @@ class OrdersController < ApplicationController
       @form_order.save
       redirect_to root_path
     else
-      @item = Item.find(params[:item_id])
+      @form_order.zip_code = nil
+      @form_order.forwarding_origin_id = nil
+      @form_order.municipality = nil
+      @form_order.address = nil
+      @form_order.building_name = nil
+      @form_order.phone_number = nil
+      @form_order.token = nil
       render :index
     end
   end
