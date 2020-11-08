@@ -6,7 +6,7 @@ RSpec.describe FormOrder, type: :model do
       @form_order = FactoryBot.build(:form_order)
     end
 
-    it '全て入力されていれば登録できること' do
+    it '全て入力されている&トークンがあれば登録できること' do
       expect(@form_order).to be_valid
     end
 
@@ -63,6 +63,12 @@ RSpec.describe FormOrder, type: :model do
       @form_order.valid?
       expect(@form_order.errors.full_messages).to include("Phone number は「-(ﾊｲﾌﾝ)」なしで入力してください")
     end
-    
+
+    it 'トークンが空では登録できないこと' do
+      @form_order.token = nil
+      @form_order.valid?
+      expect(@form_order.errors.full_messages).to include("Token can't be blank")
+    end
+
   end
 end

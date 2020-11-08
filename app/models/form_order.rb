@@ -1,6 +1,6 @@
 class FormOrder
   include ActiveModel::Model
-  attr_accessor :zip_code, :forwarding_origin_id, :municipality, :address, :building_name, :phone_number, :user_id, :item_id
+  attr_accessor :zip_code, :forwarding_origin_id, :municipality, :address, :building_name, :phone_number, :user_id, :item_id, :token
 
   
   # 空の投稿を保存できないようにする
@@ -11,6 +11,7 @@ class FormOrder
     validates :municipality
     validates :address
     validates :phone_number,         format:       { with: /\A\d{11}\z/, message: 'は「-(ﾊｲﾌﾝ)」なしで入力してください' }
+    validates :token
   end
 
   def save
