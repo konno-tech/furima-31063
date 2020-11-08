@@ -12,5 +12,4 @@ class DeliveryInformation < ApplicationRecord
   #   validates :address
   #   validates :phone_number
   # end
-
 end

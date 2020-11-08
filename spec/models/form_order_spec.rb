@@ -19,7 +19,7 @@ RSpec.describe FormOrder, type: :model do
     it '郵便番号にはハイフンが必要であること' do
       @form_order.zip_code = '1234567'
       @form_order.valid?
-      expect(@form_order.errors.full_messages).to include("Zip code は「-(ﾊｲﾌﾝ)」ありで入力してください")
+      expect(@form_order.errors.full_messages).to include('Zip code は「-(ﾊｲﾌﾝ)」ありで入力してください')
     end
 
     it '都道府県を選択する必要があること' do
@@ -31,7 +31,7 @@ RSpec.describe FormOrder, type: :model do
     it '都道府県に「---」は選択できないこと' do
       @form_order.forwarding_origin_id = '1'
       @form_order.valid?
-      expect(@form_order.errors.full_messages).to include("Forwarding origin は「---」以外を選択してください")
+      expect(@form_order.errors.full_messages).to include('Forwarding origin は「---」以外を選択してください')
     end
 
     it '市区町村を入力する必要があること' do
@@ -61,7 +61,7 @@ RSpec.describe FormOrder, type: :model do
     it '電話番号にハイフンを入力すると登録できないこと' do
       @form_order.phone_number = '080-1111-22'
       @form_order.valid?
-      expect(@form_order.errors.full_messages).to include("Phone number は「-(ﾊｲﾌﾝ)」なしで入力してください")
+      expect(@form_order.errors.full_messages).to include('Phone number は「-(ﾊｲﾌﾝ)」なしで入力してください')
     end
 
     it 'トークンが空では登録できないこと' do
@@ -69,6 +69,5 @@ RSpec.describe FormOrder, type: :model do
       @form_order.valid?
       expect(@form_order.errors.full_messages).to include("Token can't be blank")
     end
-
   end
 end
