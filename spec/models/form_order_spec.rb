@@ -60,7 +60,13 @@ RSpec.describe FormOrder, type: :model do
     it '電話番号にハイフンを入力すると登録できないこと' do
       @form_order.phone_number = '080-1111-22'
       @form_order.valid?
-      expect(@form_order.errors.full_messages).to include('Phone number は「-(ﾊｲﾌﾝ)」なしで入力してください')
+      expect(@form_order.errors.full_messages).to include('Phone number は「数字のみ且つ11桁以内で入力してください')
+    end
+
+    it '電話番号が12桁以上の場合は登録できないこと' do
+      @form_order.phone_number = '123456789012'
+      @form_order.valid?
+      expect(@form_order.errors.full_messages).to include('Phone number は「数字のみ且つ11桁以内で入力してください')
     end
 
     it 'トークンが空では登録できないこと' do

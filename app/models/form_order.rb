@@ -8,14 +8,12 @@ class FormOrder
     validates :forwarding_origin_id, numericality: { other_than: 1, message: 'は「---」以外を選択してください' }
     validates :municipality
     validates :address
-    validates :phone_number, format: { with: /\A\d{11}\z/, message: 'は「-(ﾊｲﾌﾝ)」なしで入力してください' }
+    validates :phone_number, format: { with: /\A\d{11}\z/, message: 'は「数字のみ且つ11桁以内で入力してください' }
     validates :token
   end
 
   def save
     @order = Order.create(user_id: user_id, item_id: item_id)
-    # @delivery = DeliveryInformation.create(zip_code: zip_code, forwarding_origin_id: forwarding_origin_id, municipality: municipality,
-    #                                        address: address, building_name: building_name, phone_number: phone_number, order_id: @order.id)
     DeliveryInformation.create(zip_code: zip_code, forwarding_origin_id: forwarding_origin_id, municipality: municipality,
                                address: address, building_name: building_name, phone_number: phone_number, order_id: @order.id)
   end
