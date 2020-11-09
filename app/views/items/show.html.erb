@@ -26,20 +26,17 @@
       </span>
     </div>
 
-    <%# 対象商品が売却済みの場合は以下を表示しない %>
-    <% if @item.order.blank? %>
-      <%# ログインしていなければ以下を表示しない %>
-      <% if user_signed_in? %>
-        <%# ログインかつログインユーザ＝投稿者の場合は以下「商品の編集・削除」機能が使用可能 %>
+    <%# 対象商品が売却済みではない 且つ ログインしている場合は以下を表示する %>
+    <% if @item.order.blank? && user_signed_in?%>
+        <%# ログインユーザ ＝ 投稿者の場合は以下「商品の編集・削除」機能が使用可能 %>
         <% if current_user.id == @item.user.id%>
           <%= link_to '商品の編集', edit_item_path(@item.id), method: :get, class: "item-red-btn" %>
           <p class='or-text'>or</p>
           <%= link_to '削除', item_path, method: :delete, class:'item-destroy' %>
-        <%# ログインかつログインユーザ≠投稿者の場合は購入機能のみが使用可能 %>
+        <%# ログインユーザ ≠ 投稿者の場合は購入機能のみが使用可能 %>
         <% else %>
           <%= link_to '購入画面に進む', item_orders_path(@item.id) ,class:"item-red-btn"%>
         <% end %>
-      <% end %>
     <% end %>
 
     <div class="item-explain-box">
