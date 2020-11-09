@@ -15,12 +15,6 @@ class FormOrder
 
   def save
     @order = Order.create(user_id: user_id, item_id: item_id)
-    # @order = Order.new(user_id: user_id, item_id: item_id)
-    # @order.save
-
-    # @delivery_information = DeliveryInformation.new(zip_code: zip_code, forwarding_origin_id: forwarding_origin_id, municipality: municipality,
-    #   address: address, building_name: building_name, phone_number: phone_number, order_id: @order.id)
-    # @delivery_information.save
     @delivery = DeliveryInformation.create(zip_code: zip_code, forwarding_origin_id: forwarding_origin_id, municipality: municipality,
                                            address: address, building_name: building_name, phone_number: phone_number, order_id: @order.id)
   end

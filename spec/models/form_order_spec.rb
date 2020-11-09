@@ -48,7 +48,6 @@ RSpec.describe FormOrder, type: :model do
 
     it '建物名を入力しなくても登録できること' do
       @form_order.building_name = nil
-      @form_order.valid?
       expect(@form_order).to be_valid
     end
 

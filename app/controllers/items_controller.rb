@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
 
   def edit
     # ログインユーザーの出品物ではない、もしくは既に売却済みの商品の場合、トップページに遷移する
-    redirect_to root_path if current_user.id != @item.user.id || Order.exists?(item_id: @item.id)
+    redirect_to root_path if current_user.id != @item.user.id || @item.order
   end
 
   def update

@@ -9,7 +9,7 @@
     <div class='item-img-content'>
       <%= image_tag @item.image ,class:"item-box-img" %>
       <%# 商品が売れている場合は、sold outを表示しましょう %>
-      <% if Order.exists?(item_id: @item.id) %>
+      <% if @item.order %>
       <div class='sold-out'>
         <span>Sold Out!!</span>
       </div>
@@ -27,7 +27,7 @@
     </div>
 
     <%# 対象商品が売却済みの場合は以下を表示しない %>
-    <% if Order.exists?(item_id: @item.id) == false %>
+    <% if @item.order == false %>
       <%# ログインしていなければ以下を表示しない %>
       <% if user_signed_in? %>
         <%# ログインかつログインユーザ＝投稿者の場合は以下「商品の編集・削除」機能が使用可能 %>
