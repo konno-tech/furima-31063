@@ -1,7 +1,7 @@
 window.addEventListener('load', function(){
 
     const itemPrice = document.getElementById("item-price");
-    itemPrice.addEventListener('keyup', () => {
+    itemPrice.addEventListener('input', () => {
       const price = itemPrice.value;
       const taxRate = 0.1;
       const taxPrice = Math.floor(price * taxRate);
@@ -22,7 +22,5 @@ window.addEventListener('load', function(){
       }else{
         profit.innerHTML = `${ 0 }`;
       }
-
     });
-    setInterval(check, 1000);
 })
